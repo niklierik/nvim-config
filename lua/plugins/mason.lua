@@ -5,7 +5,7 @@ return {
     opts = {
       ensure_installed = {
         "typescript-language-server",
-        "prettierd",
+        "prettier",
         "eslint_d",
         "deno",
         "angular-language-server",

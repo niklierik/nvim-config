@@ -2,7 +2,11 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+vim.keymap.set("n", "<leader><Enter>", "<CMD>TSToolsGoToSourceDefinition<CR>", { desc = "Open definition" })
+vim.keymap.set("n", "<leader>i", "<CMD>TSToolsAddMissingImports<CR>", { desc = "Add missing imports" })
+
 vim.keymap.set("n", "<leader>_", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "í", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 local ng = require("ng")
 vim.keymap.set(
