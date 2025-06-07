@@ -30,6 +30,7 @@ require("lazy").setup({
 	require("plugins.gitsigns"),
 	require("plugins.bufferline"),
 	require("plugins.lualine"),
+	require("plugins.indent-blankline"),
 	require("plugins.telescope"),
 	require("plugins.github-nvim-theme"),
 	require("plugins.nvim-tree"),
