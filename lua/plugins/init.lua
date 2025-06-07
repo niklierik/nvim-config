@@ -18,4 +18,5 @@ return {
 	require("plugins.which-key"),
 	require("plugins.nvim-colorizer"),
 	require("plugins.todo-comments"),
+	require("plugins.typescript-tools"),
 }
