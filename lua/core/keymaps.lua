@@ -42,7 +42,9 @@ vim.keymap.set('n', '<C-Right>', ':wincmd l<CR>', opts("split Move right"))
 
 vim.keymap.set('n', '<leader>to', ':tabnew<CR>', opts("New tab")) -- open new tab
 vim.keymap.set('n', '<C-n>', ':tabnew<CR>', opts("New tab")) -- open new tab
+vim.keymap.set('n', '<C-N>', ':tabnew <bar> :terminal <CR>', opts("New terminal tab")) -- open new tab
 vim.keymap.set('n', '<leader>tx', ':tabclose<CR>', opts("Close tab")) -- close current tab
+vim.keymap.set('n', '<C-W>', ':tabclose<CR>', opts("Close tab")) -- close current tab
 vim.keymap.set('n', '<leader>tn', ':tabn<CR>', opts("Next tab")) --  go to next tab
 vim.keymap.set('n', '<leader>tp', ':tabp<CR>', opts("Prev tab")) --  go to previous tab
 
