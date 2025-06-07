@@ -26,8 +26,10 @@ rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
+    require("plugins.treesitter"),
     require("plugins.bufferline"),
     require("plugins.lualine"),
+    require("plugins.telescope"),
     require("plugins.github-nvim-theme"),
     require("plugins.nvim-tree"),
 })
