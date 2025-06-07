@@ -25,17 +25,4 @@ rtp:prepend(lazypath)
 --    :Lazy update
 --
 -- NOTE: Here is where you install your plugins.
-require("lazy").setup({
-	require("plugins.treesitter"),
-	require("plugins.gitsigns"),
-	require("plugins.bufferline"),
-	require("plugins.lualine"),
-	require("plugins.indent-blankline"),
-	require("plugins.telescope"),
-	require("plugins.github-nvim-theme"),
-	require("plugins.nvim-tree"),
-	require("plugins.lsp"),
-	require("plugins.autocomplete"),
-	require("plugins.none-lsp"),
-	require("plugins.misc"),
-})
+require("lazy").setup(require("plugins"))
