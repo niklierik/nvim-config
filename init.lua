@@ -32,4 +32,6 @@ require('lazy').setup({
     require("plugins.telescope"),
     require("plugins.github-nvim-theme"),
     require("plugins.nvim-tree"),
+    require("plugins.lsp"),
+    require("plugins.autocomplete"),
 })

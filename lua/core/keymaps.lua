@@ -9,10 +9,10 @@ function opts (desc)
   return opts
 end
 
-vim.keymap.set('n', '<C-s>', '<cmd> w <CR>', opts("Save file"))
-vim.keymap.set('n', '<leader>sn', '<cmd> noautocommand w <CR>', opts("Save without formatting"))
+vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', opts("Save file"))
+vim.keymap.set('n', '<leader>sn', '<cmd>noautocommand w<CR>', opts("Save without formatting"))
 
-vim.keymap.set('n', '<C-w>', '<cmd> q <CR>', opts("Quit file"))
+vim.keymap.set('n', '<C-w>', '<cmd>q<CR>', opts("Quit file"))
 
 vim.keymap.set('n', '<C-d>', '<C-d>zz', opts("Vertical scroll down"))
 vim.keymap.set('n', '<C-u>', '<C-u>zz', opts("Vertical scroll up"))
