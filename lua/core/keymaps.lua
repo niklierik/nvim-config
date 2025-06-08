@@ -10,6 +10,7 @@ function opts(desc)
 end
 
 vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", opts("Save file"))
+vim.keymap.set("n", "<leader>o", "<cmd>:TSToolsOrganizeImports<CR>", opts("Organize imports"))
 vim.keymap.set("n", "<leader>sn", "<cmd>noautocommand w<CR>", opts("Save without formatting"))
 vim.keymap.set("n", "<C-D>", "yyp", opts("Copy & paste line (duplicate it)"))
 
