@@ -7,6 +7,7 @@ local servers = {
 		filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx", "htmlangular" },
 	},
 	lua_language_server = {},
+	cssls = {},
 }
 
 local setup = {
