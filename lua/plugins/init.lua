@@ -22,4 +22,5 @@ return {
 	require("plugins.noice"),
 	require("plugins.nvim-notify"),
 	require("plugins.harpoon"),
+	require("plugins.nvim-ts-autotag"),
 }
