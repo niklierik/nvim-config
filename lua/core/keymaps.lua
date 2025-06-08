@@ -61,3 +61,7 @@ vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open float
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 vim.keymap.set("n", "í", "<CMD> :NvimTreeOpen <CR>")
+
+vim.keymap.set("n", "é", "$", { desc = "End of line" })
+vim.keymap.set("n", "cé", "c$", { desc = "Change End of line" })
+vim.keymap.set("n", "dé", "d$", { desc = "Delete End of line" })
