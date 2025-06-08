@@ -21,4 +21,5 @@ return {
 	require("plugins.typescript-tools"),
 	require("plugins.noice"),
 	require("plugins.nvim-notify"),
+	require("plugins.harpoon"),
 }
