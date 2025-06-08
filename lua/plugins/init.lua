@@ -19,4 +19,6 @@ return {
 	require("plugins.nvim-colorizer"),
 	require("plugins.todo-comments"),
 	require("plugins.typescript-tools"),
+	require("plugins.noice"),
+	require("plugins.nvim-notify"),
 }
