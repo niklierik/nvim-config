@@ -24,4 +24,5 @@ return {
 	require("plugins.harpoon"),
 	require("plugins.nvim-ts-autotag"),
 	require("plugins.trouble"),
+	require("plugins.comment"),
 }
