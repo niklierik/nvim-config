@@ -11,7 +11,7 @@ local servers = {
 	eslint = {
 		-- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
 		workingDirectories = { mode = "auto" },
-		format = auto_format,
+		format = true,
 	},
 }
 
@@ -95,6 +95,8 @@ local setup = {
 		LazyVim.format.register(formatter)
 	end,
 }
+
+vim.diagnostic.config({ virtual_text = true })
 
 return {
 	"neovim/nvim-lspconfig",

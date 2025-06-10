@@ -23,4 +23,5 @@ return {
 	require("plugins.nvim-notify"),
 	require("plugins.harpoon"),
 	require("plugins.nvim-ts-autotag"),
+	require("plugins.trouble"),
 }
