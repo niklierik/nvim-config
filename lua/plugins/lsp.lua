@@ -1,3 +1,58 @@
+local auto_format = false
+
+local settings = {
+	format = {
+		enable = false,
+	},
+	-- Schemas https://www.schemastore.org
+	schemas = {
+		{
+			fileMatch = { "package.json" },
+			url = "https://json.schemastore.org/package.json",
+		},
+		{
+			fileMatch = { "tsconfig.json" },
+			url = "https://json.schemastore.org/tsconfig.json",
+		},
+		{
+			fileMatch = { "tsconfig*.json" },
+			url = "https://json.schemastore.org/tsconfig.json",
+		},
+		{
+			fileMatch = {
+				".prettierrc",
+				".prettierrc.json",
+				"prettier.config.json",
+			},
+			url = "https://json.schemastore.org/prettierrc.json",
+		},
+		{
+			fileMatch = { ".eslintrc", ".eslintrc.json" },
+			url = "https://json.schemastore.org/eslintrc.json",
+		},
+		{
+			fileMatch = { ".babelrc", ".babelrc.json", "babel.config.json" },
+			url = "https://json.schemastore.org/babelrc.json",
+		},
+		{
+			fileMatch = { "lerna.json" },
+			url = "https://json.schemastore.org/lerna.json",
+		},
+		{
+			fileMatch = { "now.json", "vercel.json" },
+			url = "https://json.schemastore.org/now.json",
+		},
+		{
+			fileMatch = {
+				".stylelintrc",
+				".stylelintrc.json",
+				"stylelint.config.json",
+			},
+			url = "http://json.schemastore.org/stylelintrc.json",
+		},
+	},
+}
+
 local servers = {
 	angularls = {
 		root_dir = function(fname)
@@ -11,60 +66,16 @@ local servers = {
 	eslint = {
 		-- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
 		workingDirectories = { mode = "auto" },
-		format = true,
+		format = auto_format,
+	},
+	ts_ls = {
+		filetypes = { "typescript", "typescriptreact" },
 	},
 	jsonls = {
 		filetypes = { "json", "jsonc" },
 		settings = {
-			json = {
-				-- Schemas https://www.schemastore.org
-				schemas = {
-					{
-						fileMatch = { "package.json" },
-						url = "https://json.schemastore.org/package.json",
-					},
-					{
-						fileMatch = { "tsconfig.json" },
-						url = "https://json.schemastore.org/tsconfig.json",
-					},
-					{
-						fileMatch = { "tsconfig*.json" },
-						url = "https://json.schemastore.org/tsconfig.json",
-					},
-					{
-						fileMatch = {
-							".prettierrc",
-							".prettierrc.json",
-							"prettier.config.json",
-						},
-						url = "https://json.schemastore.org/prettierrc.json",
-					},
-					{
-						fileMatch = { ".eslintrc", ".eslintrc.json" },
-						url = "https://json.schemastore.org/eslintrc.json",
-					},
-					{
-						fileMatch = { ".babelrc", ".babelrc.json", "babel.config.json" },
-						url = "https://json.schemastore.org/babelrc.json",
-					},
-					{
-						fileMatch = { "lerna.json" },
-						url = "https://json.schemastore.org/lerna.json",
-					},
-					{
-						fileMatch = { "now.json", "vercel.json" },
-						url = "https://json.schemastore.org/now.json",
-					},
-					{
-						fileMatch = {
-							".stylelintrc",
-							".stylelintrc.json",
-							"stylelint.config.json",
-						},
-						url = "http://json.schemastore.org/stylelintrc.json",
-					},
-				},
-			},
+			json = settings,
+			jsonc = settings,
 		},
 	},
 }
