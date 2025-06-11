@@ -17,3 +17,4 @@ vim.o.showtabline = 2
 vim.o.fileencoding = "utf-8"
 
 vim.opt.termguicolors = true
+vim.opt.cursorline = true
