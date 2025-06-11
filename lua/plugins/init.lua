@@ -26,4 +26,5 @@ return {
 	require("plugins.trouble"),
 	require("plugins.comment"),
 	require("plugins.pnpm"),
+	require("plugins.gitgraph"),
 }
