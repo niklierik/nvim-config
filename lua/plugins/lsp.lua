@@ -1,6 +1,6 @@
 local auto_format = false
 
-local settings = {
+local json_settings = {
 	format = {
 		enable = false,
 	},
@@ -68,14 +68,12 @@ local servers = {
 		workingDirectories = { mode = "auto" },
 		format = auto_format,
 	},
-	ts_ls = {
-		filetypes = { "typescript", "typescriptreact" },
-	},
+	vtsls = {},
 	jsonls = {
 		filetypes = { "json", "jsonc" },
 		settings = {
-			json = settings,
-			jsonc = settings,
+			json = json_settings,
+			jsonc = json_settings,
 		},
 	},
 }
@@ -292,7 +290,22 @@ return {
 				function(server_name)
 					local server = servers[server_name] or {}
 					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-					require("lspconfig")[server_name].setup(server)
+					if server_name == "vtsls" then
+						require("lspconfig").vtsls.setup({
+							on_attach = lsp_attach,
+							capabilities = lsp_capabilities,
+
+							settings = {
+								typescript = {
+									preferences = {
+										importModuleSpecifier = "project-relative",
+									},
+								},
+							},
+						})
+					else
+						require("lspconfig")[server_name].setup(server)
+					end
 				end,
 			},
 		})

@@ -11,15 +11,66 @@ end
 
 local function organize_imports()
 	local params = {
-		command = "_typescript.organizeImports",
+		command = "typescript.organizeImports",
 		arguments = { vim.api.nvim_buf_get_name(0) },
 		title = "",
 	}
 	vim.lsp.buf.execute_command(params)
 end
 
-vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", opts("Save file"))
+local did_setup_import_path = false
+
+local function set_import_path()
+	require("lspconfig").vtsls.setup({
+		on_attach = lsp_attach,
+		capabilities = lsp_capabilities,
+
+		settings = {
+			typescript = {
+				preferences = {
+					importModuleSpecifier = "project-relative",
+				},
+			},
+		},
+	})
+	did_setup_import_path = true
+end
+
+vim.keymap.set("n", "<C-s>", function()
+	organize_imports()
+	vim.cmd("w")
+end, opts("Save file"))
+
 vim.keymap.set("n", "<leader>o", organize_imports, opts("Organize imports"))
+
+vim.keymap.set("n", "<leader>rf", function()
+	if not did_setup_import_path then
+		set_import_path()
+	end
+
+	vim.lsp.buf.code_action({
+		apply = true,
+		context = {
+			only = { "refactor" },
+			diagnostics = {},
+		},
+	})
+end, opts("Refactor Action"))
+
+vim.keymap.set("n", "<leader>ea", function()
+	if not did_setup_import_path then
+		set_import_path()
+	end
+
+	vim.lsp.buf.code_action({
+		apply = true,
+		context = {
+			only = { "editor" },
+			diagnostics = {},
+		},
+	})
+end, opts("Editor Action"))
+
 vim.keymap.set("n", "<leader>sn", "<cmd>noautocommand w<CR>", opts("Save without formatting"))
 vim.keymap.set("n", "<C-D>", "yyp", opts("Copy & paste line (duplicate it)"))
 
