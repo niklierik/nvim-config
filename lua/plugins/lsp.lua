@@ -76,6 +76,8 @@ local servers = {
 			jsonc = json_settings,
 		},
 	},
+	csharp_ls = {},
+	csharpier = {},
 }
 
 local setup = {

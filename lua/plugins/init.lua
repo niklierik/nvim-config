@@ -29,4 +29,5 @@ return {
 	require("plugins.gitgraph"),
 	require("plugins.git-conflict"),
 	require("plugins.nvim-lsp-file-operations"),
+	require("plugins.floating-terminal"),
 }

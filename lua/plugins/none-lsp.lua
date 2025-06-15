@@ -14,6 +14,7 @@ return {
 				"prettier", -- ts/js formatter
 				"stylua", -- lua formatter
 				"eslint_d", -- ts/js linter
+				"csharpier",
 			},
 			automatic_installation = true,
 		})
@@ -23,6 +24,9 @@ return {
 				filetypes = { "html", "json", "jsonc", "yaml", "markdown", "typescript", "javascript", "scss", "css" },
 			}),
 			formatting.stylua,
+			formatting.csharpier.with({
+				filetypes = { "cs" },
+			}),
 		}
 
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
