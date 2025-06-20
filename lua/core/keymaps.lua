@@ -89,26 +89,26 @@ vim.keymap.set("n", "<S-Right>", ":vertical resize +2<CR>", opts("Vertical Resiz
 
 vim.keymap.set("n", "<Tab>", ":bnext<CR>", opts("Next buffer"))
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts("Prev buffer"))
-vim.keymap.set("n", "<leader>x", ":bdelete!<CR>", opts("Close buffer"))                 -- close buffer
-vim.keymap.set("n", "<leader>b", "<cmd> enew <CR>", opts("New buffer"))                 -- new buffer
+vim.keymap.set("n", "<leader>x", ":bdelete!<CR>", opts("Close buffer")) -- close buffer
+vim.keymap.set("n", "<leader>b", "<cmd> enew <CR>", opts("New buffer")) -- new buffer
 
-vim.keymap.set("n", "<leader>v", "<C-w>v", opts("Split window vertically"))             -- split window vertically
-vim.keymap.set("n", "<leader>h", "<C-w>s", opts("Split window horizontally"))           -- split window horizontally
+vim.keymap.set("n", "<leader>v", "<C-w>v", opts("Split window vertically")) -- split window vertically
+vim.keymap.set("n", "<leader>h", "<C-w>s", opts("Split window horizontally")) -- split window horizontally
 vim.keymap.set("n", "<leader>se", "<C-w>=", opts("Equalize width & height of windows")) -- make split windows equal width & height
-vim.keymap.set("n", "<leader>xs", ":close<CR>", opts("Close current split window"))     -- close current split window
+vim.keymap.set("n", "<leader>xs", ":close<CR>", opts("Close current split window")) -- close current split window
 
 vim.keymap.set("n", "<C-Up>", ":wincmd k<CR>", opts("split Move up"))
 vim.keymap.set("n", "<C-Down>", ":wincmd j<CR>", opts("split Move down"))
 vim.keymap.set("n", "<C-Left>", ":wincmd h<CR>", opts("split Move left"))
 vim.keymap.set("n", "<C-Right>", ":wincmd l<CR>", opts("split Move right"))
 
-vim.keymap.set("n", "<leader>to", ":tabnew<CR>", opts("New tab"))                      -- open new tab
-vim.keymap.set("n", "<C-n>", ":tabnew<CR>", opts("New tab"))                           -- open new tab
+vim.keymap.set("n", "<leader>to", ":tabnew<CR>", opts("New tab")) -- open new tab
+vim.keymap.set("n", "<C-n>", ":tabnew<CR>", opts("New tab")) -- open new tab
 vim.keymap.set("n", "<C-N>", ":tabnew <bar> :terminal <CR>", opts("New terminal tab")) -- open new tab
-vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", opts("Close tab"))                  -- close current tab
-vim.keymap.set("n", "<C-W>", ":tabclose<CR>", opts("Close tab"))                       -- close current tab
-vim.keymap.set("n", "<leader>tn", ":tabn<CR>", opts("Next tab"))                       --  go to next tab
-vim.keymap.set("n", "<leader>tp", ":tabp<CR>", opts("Prev tab"))                       --  go to previous tab
+vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", opts("Close tab")) -- close current tab
+vim.keymap.set("n", "<C-W>", ":tabclose<CR>", opts("Close tab")) -- close current tab
+vim.keymap.set("n", "<leader>tn", ":tabn<CR>", opts("Next tab")) --  go to next tab
+vim.keymap.set("n", "<leader>tp", ":tabp<CR>", opts("Prev tab")) --  go to previous tab
 
 vim.keymap.set("n", "<leader>lw", "<cmd>set wrap!<CR>", opts("Toggle line wrapping"))
 
@@ -122,6 +122,13 @@ vim.keymap.set("n", "<leader>d ", vim.diagnostic.open_float, { desc = "Open floa
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 vim.keymap.set("n", "í", "<CMD> :NvimTreeOpen <CR>")
+
+function insertFullPath()
+	local filepath = vim.fn.expand("%")
+	vim.fn.setreg("+", filepath) -- write to clippoard
+end
+
+vim.keymap.set("n", "<leader>cp", insertFullPath, opts("Copy path of current file"))
 
 vim.keymap.set({ "n", "v" }, "é", "$", { desc = "End of line" })
 vim.keymap.set({ "n", "v" }, "á", "^", { desc = "Start of line" })

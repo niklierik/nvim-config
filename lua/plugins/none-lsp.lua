@@ -21,7 +21,18 @@ return {
 
 		local sources = {
 			formatting.prettier.with({
-				filetypes = { "html", "json", "jsonc", "yaml", "markdown", "typescript", "javascript", "scss", "css" },
+				filetypes = {
+					"html",
+					"json",
+					"jsonc",
+					"yaml",
+					"markdown",
+					"typescript",
+					"javascript",
+					"scss",
+					"css",
+					"htmlangular",
+				},
 			}),
 			formatting.stylua,
 			formatting.csharpier.with({
