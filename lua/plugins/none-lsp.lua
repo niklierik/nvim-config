@@ -13,7 +13,6 @@ return {
 			ensure_installed = {
 				"prettier", -- ts/js formatter
 				"stylua", -- lua formatter
-				"eslint_d", -- ts/js linter
 				"csharpier",
 			},
 			automatic_installation = true,
@@ -34,7 +33,9 @@ return {
 					"htmlangular",
 				},
 			}),
-			formatting.stylua,
+			formatting.stylua.with({
+				filetypes = { "lua" },
+			}),
 			formatting.csharpier.with({
 				filetypes = { "cs" },
 			}),
