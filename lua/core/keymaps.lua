@@ -37,7 +37,6 @@ local function set_import_path()
 end
 
 vim.keymap.set("n", "<C-s>", function()
-	organize_imports()
 	vim.cmd("w")
 end, opts("Save file"))
 
