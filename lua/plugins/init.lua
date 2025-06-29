@@ -30,4 +30,5 @@ return {
 	require("plugins.git-conflict"),
 	require("plugins.nvim-lsp-file-operations"),
 	require("plugins.floating-terminal"),
+	require("plugins.tmux"),
 }
