@@ -31,4 +31,5 @@ return {
 	require("plugins.nvim-lsp-file-operations"),
 	require("plugins.floating-terminal"),
 	require("plugins.tmux"),
+	require("plugins.nvim-spectre"),
 }
