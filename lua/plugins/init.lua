@@ -32,4 +32,6 @@ return {
 	require("plugins.floating-terminal"),
 	require("plugins.tmux"),
 	require("plugins.nvim-spectre"),
+	require("plugins.nx"),
+	require("plugins.mason"),
 }
