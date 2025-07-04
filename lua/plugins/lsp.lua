@@ -120,7 +120,9 @@ return {
 			end, opts)
 		end
 		-- used to enable autocompletion (assign to every lsp server config)
-		local capabilities = cmp_nvim_lsp.default_capabilities()
+		-- local capabilities = cmp_nvim_lsp.default_capabilities()
+
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 		-- Change the Diagnostic symbols in the sign column (gutter)
 		-- (not in youtube nvim video)
@@ -131,29 +133,30 @@ return {
 		end
 
 		-- configure typescript server with plugin
-		lspconfig["vtsls"].setup({
+		vim.lsp.config("vtsls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			-- 16 gb
 			maxTsServerMemory = 16000,
+			filetypes = { "typescript" },
 		})
 
 		-- configure css server
-		lspconfig["cssls"].setup({
+		vim.lsp.config("cssls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
+			filetypes = { "css", "scss" },
 		})
 
-		-- configure svelte server
-		lspconfig["angularls"].setup({
+		vim.lsp.config("angularls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 
-			filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx", "htmlangular" },
+			filetypes = { "html", "htmlangular" },
 		})
 
 		-- configure json-lsp server
-		lspconfig["jsonls"].setup({
+		vim.lsp.config("jsonls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = {
@@ -163,13 +166,18 @@ return {
 
 			filetypes = { "json", "jsonc" },
 		})
-		lspconfig["csharp_ls"].setup({
+		vim.lsp.config("csharp_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
+			filetypes = { "csharp" },
+		})
+
+		vim.lsp.config("csharpier", {
+			filetypes = { "csharp" },
 		})
 
 		-- configure lua server (with special settings)
-		lspconfig["lua_ls"].setup({
+		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = { -- custom settings for lua
@@ -187,6 +195,7 @@ return {
 					},
 				},
 			},
+			filetypes = { "lua" },
 		})
 	end,
 }
