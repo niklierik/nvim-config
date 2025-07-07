@@ -35,5 +35,6 @@ return {
 	require("plugins.nx"),
 	require("plugins.diffview"),
 	require("plugins.mason"),
+	require("plugins.nvim-web-devicons"),
 	-- require("plugins.vim-flog"),
 }
