@@ -73,6 +73,8 @@ return {
 		local on_attach = function(client, bufnr)
 			opts.buffer = bufnr
 
+			client.server_capabilities.documentFormattingProvider = false
+
 			-- set keybinds
 			opts.desc = "Show LSP references"
 			keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
