@@ -139,6 +139,13 @@ return {
 			-- 16 gb
 			maxTsServerMemory = 16000,
 			filetypes = { "typescript" },
+			settings = {
+				typescript = {
+					preferences = {
+						importModuleSpecifier = "project-relative",
+					},
+				},
+			},
 		})
 
 		-- configure css server

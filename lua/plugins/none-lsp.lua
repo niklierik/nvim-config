@@ -1,12 +1,3 @@
-local function organize_imports()
-	local params = {
-		command = "typescript.organizeImports",
-		arguments = { vim.api.nvim_buf_get_name(0) },
-		title = "",
-	}
-	vim.lsp.buf.execute_command(params)
-end
-
 return {
 	"nvimtools/none-ls.nvim",
 	dependencies = {
@@ -15,46 +6,26 @@ return {
 	},
 	config = function()
 		local null_ls = require("null-ls")
-		local formatting = null_ls.builtins.formatting -- to setup formatters
-
-		-- Formatters & linters for mason to install
-		require("mason-null-ls").setup({
-			ensure_installed = {
-				"prettier", -- ts/js formatter
-				"stylua", -- lua formatter
-				"csharpier",
-			},
-			automatic_installation = true,
-		})
-
-		local sources = {
-			formatting.prettier.with({
-				filetypes = {
-					"html",
-					"json",
-					"jsonc",
-					"yaml",
-					"markdown",
-					"typescript",
-					"javascript",
-					"scss",
-					"css",
-					"htmlangular",
-				},
-			}),
-			formatting.stylua.with({
-				filetypes = { "lua" },
-			}),
-			formatting.csharpier.with({
-				filetypes = { "cs" },
-			}),
-		}
 
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 		null_ls.setup({
-			debug = true, -- Enable debug mode. Inspect logs with :NullLsLog.
-			sources = sources,
-			-- you can reuse a shared lspconfig on_attach callback here
+			sources = {
+				null_ls.builtins.formatting.prettier.with({
+					file_types = {
+						"json",
+						"jsonc",
+						"html",
+						"htmlangular",
+						"typescript",
+						"javascript",
+						"css",
+						"scss",
+					},
+				}),
+				null_ls.builtins.formatting.stylua,
+				null_ls.builtins.completion.spell,
+			},
+
 			on_attach = function(client, bufnr)
 				if client.supports_method("textDocument/formatting") then
 					vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
@@ -62,11 +33,17 @@ return {
 						group = augroup,
 						buffer = bufnr,
 						callback = function()
-							vim.lsp.buf.format({ async = false })
+							vim.lsp.buf.format({
+								async = false,
+								filter = function(client)
+									return client.name ~= "null_ls"
+								end,
+							})
 						end,
 					})
 				end
 			end,
 		})
+		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { desc = "Format file" })
 	end,
 }
