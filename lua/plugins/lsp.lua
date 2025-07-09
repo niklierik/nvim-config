@@ -157,6 +157,12 @@ return {
 			filetypes = { "css", "scss" },
 		})
 
+		vim.lsp.config("somesass_ls", {
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = { "scss" },
+		})
+
 		vim.lsp.config("angularls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
