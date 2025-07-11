@@ -33,7 +33,7 @@ return {
 	require("plugins.tmux"),
 	require("plugins.nvim-spectre"),
 	require("plugins.nx"),
-	require("plugins.diffview"),
+	-- require("plugins.diffview"),
 	require("plugins.mason"),
 	require("plugins.nvim-web-devicons"),
 	-- require("plugins.vim-flog"),
