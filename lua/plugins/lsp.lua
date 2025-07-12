@@ -191,6 +191,12 @@ return {
 			filetypes = { "csharp" },
 		})
 
+		vim.lsp.config("docker_compose_language_service", {
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = { "yaml" },
+		})
+
 		-- configure lua server (with special settings)
 		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
