@@ -130,7 +130,7 @@ return {
 		end, {})
 
 		-- Example keybinding
-		vim.keymap.set("n", "<C-p>", function()
+		vim.keymap.set("n", "<C-P>", function()
 			dotnet.run_project()
 		end)
 	end,

@@ -37,6 +37,8 @@ return { -- Autocompletion
 	},
 	config = function()
 		-- See `:help cmp`
+		local lspkind = require("cmp.types").lsp.CompletionItemKind
+
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		luasnip.config.setup({})
@@ -74,7 +76,7 @@ return { -- Autocompletion
 					luasnip.lsp_expand(args.body)
 				end,
 			},
-			completion = { completeopt = "menu,menuone,noinsert" },
+			completion = { completeopt = "menu,menuone,noinsert", keyword_pattern = [[\k\+]] },
 
 			-- For an understanding of why these mappings were
 			-- chosen, you will need to read `:help ins-completion`
@@ -154,7 +156,13 @@ return { -- Autocompletion
 					-- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
 					group_index = 0,
 				},
-				{ name = "nvim_lsp" },
+				{
+					name = "nvim_lsp",
+					entry_filter = function(entry, ctx)
+						-- Remove items of kind "Text"
+						return entry:get_kind() ~= lspkind.Text
+					end,
+				},
 				{ name = "luasnip" },
 				--	{ name = "buffer" },
 				{ name = "path" },

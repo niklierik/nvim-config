@@ -18,7 +18,7 @@ return {
 	require("plugins.which-key"),
 	require("plugins.nvim-colorizer"),
 	require("plugins.todo-comments"),
-	require("plugins.easy-dotnet"),
+	-- require("plugins.easy-dotnet"),
 	--	require("plugins.typescript-tools"),
 	require("plugins.noice"),
 	require("plugins.nvim-notify"),
