@@ -150,6 +150,16 @@ return {
 			},
 		})
 
+		vim.lsp.config("eslint", {
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = {
+				"typescript",
+				"javascript",
+				"htmlangular",
+			},
+		})
+
 		-- configure css server
 		vim.lsp.config("cssls", {
 			capabilities = capabilities,
