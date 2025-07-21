@@ -194,7 +194,7 @@ return {
 		vim.lsp.config("csharp_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
-			filetypes = { "csharp" },
+			filetypes = { "cs" },
 		})
 
 		vim.lsp.config("csharpier", {
