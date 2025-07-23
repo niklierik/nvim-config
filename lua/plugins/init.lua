@@ -26,6 +26,7 @@ return {
 	require("plugins.nvim-ts-autotag"),
 	require("plugins.trouble"),
 	require("plugins.comment"),
+	require("plugins.sortjson"),
 	require("plugins.pnpm"),
 	require("plugins.gitgraph"),
 	require("plugins.git-conflict"),
