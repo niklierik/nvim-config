@@ -207,6 +207,12 @@ return {
 			filetypes = { "yaml" },
 		})
 
+		vim.lsp.config("bashls", {
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = { "sh" },
+		})
+
 		-- configure lua server (with special settings)
 		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
