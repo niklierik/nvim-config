@@ -160,6 +160,14 @@ return {
 			},
 		})
 
+		vim.lsp.config("pylsp", {
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = {
+				"python",
+			},
+		})
+
 		-- configure css server
 		vim.lsp.config("cssls", {
 			capabilities = capabilities,

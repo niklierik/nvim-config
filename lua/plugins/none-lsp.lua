@@ -25,6 +25,11 @@ return {
 				null_ls.builtins.formatting.csharpier,
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.completion.spell,
+				null_ls.builtins.formatting.black.with({
+					file_types = {
+						"python",
+					},
+				}),
 			},
 
 			on_attach = function(client, bufnr)
