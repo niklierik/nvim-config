@@ -168,6 +168,14 @@ return {
 			},
 		})
 
+		vim.lsp.config("clangd", {
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = {
+				"cpp",
+			},
+		})
+
 		-- configure css server
 		vim.lsp.config("cssls", {
 			capabilities = capabilities,

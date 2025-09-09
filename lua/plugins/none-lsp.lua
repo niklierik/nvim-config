@@ -30,6 +30,9 @@ return {
 						"python",
 					},
 				}),
+				null_ls.builtins.formatting.clang_format.with({
+					file_types = { "cpp" },
+				}),
 			},
 
 			on_attach = function(client, bufnr)
