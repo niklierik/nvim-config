@@ -160,6 +160,14 @@ return {
 			},
 		})
 
+		vim.lsp.config("neocmake", {
+			capabilities = capabilities,
+			on_attach = on_attach,
+			cmd = { "neocmakelsp", "stdio" },
+			filetypes = { "cmake", "CMakeLists.txt" },
+			single_file_support = true,
+		})
+
 		vim.lsp.config("pylsp", {
 			capabilities = capabilities,
 			on_attach = on_attach,
@@ -173,6 +181,9 @@ return {
 			on_attach = on_attach,
 			filetypes = {
 				"cpp",
+			},
+			init_options = {
+				fallbackFlags = { "--std=c++20" },
 			},
 		})
 

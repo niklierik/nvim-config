@@ -38,5 +38,6 @@ return {
 	-- require("plugins.diffview"),
 	require("plugins.mason"),
 	require("plugins.nvim-web-devicons"),
+	require("plugins.cmake"),
 	-- require("plugins.vim-flog"),
 }
