@@ -140,7 +140,7 @@ return {
 			on_attach = on_attach,
 			-- 16 gb
 			maxTsServerMemory = 16000,
-			filetypes = { "typescript" },
+			filetypes = { "typescript", "javascript" },
 			settings = {
 				typescript = {
 					preferences = {
