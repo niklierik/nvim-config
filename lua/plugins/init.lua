@@ -39,5 +39,6 @@ return {
 	require("plugins.mason"),
 	require("plugins.nvim-web-devicons"),
 	require("plugins.cmake"),
+	require("plugins.remote-sshfs"),
 	-- require("plugins.vim-flog"),
 }
