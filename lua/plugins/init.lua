@@ -40,5 +40,6 @@ return {
 	require("plugins.nvim-web-devicons"),
 	require("plugins.cmake"),
 	require("plugins.remote-sshfs"),
+	require("plugins.neotest-vitest"),
 	-- require("plugins.vim-flog"),
 }

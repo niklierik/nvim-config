@@ -158,6 +158,14 @@ return {
 				"javascript",
 				"htmlangular",
 			},
+			settings = {
+				experimental = {
+					useFlatConfig = nil,
+				},
+				useFlatConfig = true,
+			},
+			workingDirectories = { mode = "auto" },
+			useFlatConfig = true,
 		})
 
 		vim.lsp.config("neocmake", {
