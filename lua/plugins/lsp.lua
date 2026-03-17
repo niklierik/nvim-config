@@ -234,10 +234,22 @@ return {
 
 			filetypes = { "json", "jsonc" },
 		})
-		vim.lsp.config("csharp_ls", {
+		vim.lsp.config("roslyn", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "cs" },
+			settings = {
+				["csharp|inlay_hints"] = {
+					csharp_enable_inlay_hints_for_implicit_object_creation = true,
+					csharp_enable_inlay_hints_for_implicit_variable_types = true,
+				},
+				["csharp|code_lens"] = {
+					dotnet_enable_references_code_lens = true,
+				},
+				["csharp|formatter"] = {
+					enable = false,
+				},
+			},
 		})
 
 		vim.lsp.config("csharpier", {

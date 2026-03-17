@@ -22,6 +22,10 @@ return {
 					package_uninstalled = "✗",
 				},
 			},
+			registries = {
+				"github:mason-org/mason-registry",
+				"github:Crashdummyy/mason-registry",
+			},
 		})
 
 		mason_lspconfig.setup({
@@ -31,7 +35,7 @@ return {
 				"vtsls",
 				"cssls",
 				"lua_ls",
-				"csharp_ls",
+				--			"csharp_ls",
 				"jsonls",
 				"somesass_ls",
 				"docker_compose_language_service",
@@ -42,6 +46,9 @@ return {
 				"clang-format",
 				"neocmake",
 				"glslls",
+				"xmlformatter",
+				"tidy",
+				"roslyn",
 			},
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true, -- not the same as ensure_installed

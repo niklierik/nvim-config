@@ -22,7 +22,11 @@ return {
 						"scss",
 					},
 				}),
-				null_ls.builtins.formatting.csharpier,
+				null_ls.builtins.formatting.csharpier.with({
+					file_types = {
+						"cs",
+					},
+				}),
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.completion.spell,
 				null_ls.builtins.formatting.black.with({
@@ -32,6 +36,9 @@ return {
 				}),
 				null_ls.builtins.formatting.clang_format.with({
 					file_types = { "cpp" },
+				}),
+				null_ls.builtins.formatting.xmllint.with({
+					file_types = { "xml" },
 				}),
 			},
 

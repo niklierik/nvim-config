@@ -41,5 +41,6 @@ return {
 	require("plugins.cmake"),
 	require("plugins.remote-sshfs"),
 	require("plugins.neotest-vitest"),
+	require("plugins.roslyn"),
 	-- require("plugins.vim-flog"),
 }
