@@ -189,17 +189,10 @@ return {
 			on_attach = on_attach,
 			filetypes = {
 				"cpp",
+				"c",
 			},
 			init_options = {
 				fallbackFlags = { "--std=c++23", "-header-insertion=never" },
-			},
-		})
-
-		vim.lsp.config("glslls", {
-			capabilities = capabilities,
-			on_attach = on_attach,
-			filetypes = {
-				"slang",
 			},
 		})
 
